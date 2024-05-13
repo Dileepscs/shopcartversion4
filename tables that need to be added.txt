@@ -1,0 +1,23 @@
+-- Create the 'coupons_1' table
+CREATE TABLE coupons_1 (
+    cpn_id SERIAL PRIMARY KEY,
+    cpn_code CHAR(10) UNIQUE,
+    cpn_count INT,
+    coupon_discount_percentage DECIMAL(5,2) -- Discount percentage column
+);
+
+-- Inserting 10 rows of example data with different discount percentages
+INSERT INTO coupons_1 (cpn_code, cpn_count, coupon_discount_percentage) VALUES
+('CODE000001', 5, 10), -- Coupon ID 1 gets a 10% discount
+('CODE000002', 10, 15), -- Coupon ID 2 gets a 15% discount
+('CODE000003', 3, 20), -- Coupon ID 3 gets a 20% discount
+('CODE000004', 8, 0), -- Coupon ID 4 gets no discount (default)
+('CODE000005', 12, 10), -- Coupon ID 5 gets a 10% discount
+('CODE000006', 6, 15), -- Coupon ID 6 gets a 15% discount
+('CODE000007', 2, 20), -- Coupon ID 7 gets a 20% discount
+('CODE000008', 9, 5), -- Coupon ID 8 gets  a 5% discount 
+('CODE000009', 4, 10), -- Coupon ID 9 gets a 10% discount
+('CODE000010', 7, 15); -- Coupon ID 10 gets a 15% discount
+
+-- Viewing the table structure and data
+SELECT * FROM coupons_1;

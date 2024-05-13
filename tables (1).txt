@@ -1,0 +1,222 @@
+CREATE TABLE customer_1 (
+    cust_id SERIAL PRIMARY KEY,
+    cust_name VARCHAR(100),
+    cust_mobile NUMERIC(10,0),
+    username VARCHAR(50),
+    password VARCHAR(50)
+);
+
+-- Alter table to change data type of cust_mobile to VARCHAR
+ALTER TABLE customer_1
+ALTER COLUMN cust_mobile TYPE VARCHAR(10);
+
+
+CREATE TABLE product_1 (
+    id SERIAL PRIMARY KEY,
+    title TEXT,
+    price DOUBLE PRECISION,
+    description TEXT,
+    category TEXT,
+    image TEXT,
+    rating JSONB,
+    hsnId INT REFERENCES HSNCodes_1(hsnc_id)
+);
+
+
+INSERT INTO product_1 (title, price, description, category, image, rating, hsnId) 
+VALUES 
+('Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops', 109.95, 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday', 'men''s clothing', 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg', '{"rate": 3.9, "count": 120}', 1),
+('Mens Casual Premium Slim Fit T-Shirts ', 22.3, 'Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.', 'men''s clothing', 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg', '{"rate": 4.1, "count": 259}', 2),
+('Mens Cotton Jacket', 55.99, 'great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.', 'men''s clothing', 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg', '{"rate": 4.7, "count": 500}', 3),
+('Mens Casual Slim Fit', 15.99, 'The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.', 'men''s clothing', 'https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg', '{"rate": 2.1, "count": 430}', 4),
+('John Hardy Women''s Legends Naga Gold & Silver Dragon Station Chain Bracelet', 695, 'From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean''s pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.', 'jewelery', 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg', '{"rate": 4.6, "count": 400}', 5),
+('Solid Gold Petite Micropave ', 168, 'Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.', 'jewelery', 'https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg', '{"rate": 3.9, "count": 70}', 6),
+('White Gold Plated Princess', 9.99, 'Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine''s Day...', 'jewelery', 'https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg', '{"rate": 3, "count": 400}', 3),
+('Pierced Owl Rose Gold Plated Stainless Steel Double', 10.99, 'Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel', 'jewelery', 'https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg', '{"rate": 1.9, "count": 100}', 4),
+('WD 2TB Elements Portable External Hard Drive - USB 3.0 ', 64, 'USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7; Reformatting may be required for other operating systems; Compatibility may vary depending on user’s hardware configuration and operating system', 'electronics', 'https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg', '{"rate": 3.3, "count": 203}', 7),
+('SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s', 109, 'Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)', 'electronics', 'https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg', '{"rate": 2.9, "count": 470}', 2),
+('Silicon Power 256GB SSD 3D NAND A55 SLC Cache Performance Boost SATA III 2.5', 109, '3D NAND flash are applied to deliver high transfer speeds Remarkable transfer speeds that enable faster bootup and improved overall system performance. The advanced SLC Cache Technology allows performance boost and longer lifespan 7mm slim design suitable for Ultrabooks and Ultra-slim notebooks. Supports TRIM command, Garbage Collection technology, RAID, and ECC (Error Checking & Correction) to provide the optimized performance and enhanced reliability.', 'electronics', 'https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg', '{"rate": 4.8, "count": 319}', 8),
+('WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive', 114, 'Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer''s limited warranty', 'electronics', 'https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg', '{"rate": 4.8, "count": 400}', 9),
+('Acer SB220Q bi 21.5 inches Full HD (1920 x 1080) IPS Ultra-Thin', 599, '21. 5 inches Full HD (1920 x 1080) widescreen IPS display And Radeon free Sync technology. No compatibility for VESA Mount Refresh Rate: 75Hz - Using HDMI port Zero-frame design | ultra-thin | 4ms response time | IPS panel Aspect ratio - 16: 9. Color Supported - 16. 7 million colors. Brightness - 250 nit Tilt angle -5 degree to 15 degree. Horizontal viewing angle-178 degree. Vertical viewing angle-178 degree 75 hertz', 'electronics', 'https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg', '{"rate": 2.9, "count": 250}', 10),
+('Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor (LC49HG90DMNXZA) – Super Ultrawide Screen QLED ', 999.99, '49 INCH SUPER ULTRAWIDE 32:9 CURVED GAMING MONITOR with dual 27 inch screen side by side QUANTUM DOT (QLED) TECHNOLOGY, HDR support and factory calibration provides stunningly realistic and accurate color and contrast 144HZ HIGH REFRESH RATE and 1ms ultra fast response time work to eliminate motion blur, ghosting, and reduce input lag', 'electronics', 'https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg', '{"rate": 2.2, "count": 140}', 1),
+('BIYLACLESEN Women''s 3-in-1 Snowboard Jacket Winter Coats', 56.99, 'Note:The Jackets is US standard size, Please choose size as your usual wear Material: 100% Polyester; Detachable Liner Fabric: Warm Fleece. Detachable Functional Liner: Skin Friendly, Lightweigt and Warm.Stand Collar Liner jacket, keep you warm in cold weather. Zippered Pockets: 2 Zippered Hand Pockets, 2 Zippered Pockets on Chest (enough to keep cards or keys)and 1 Hidden Pocket Inside.Zippered Hand Pockets and Hidden Pocket keep your things secure. Humanized Design: Adjustable and Detachable Hood and Adjustable cuff to prevent the wind and water,for a comfortable fit. 3 in 1 Detachable Design provide more convenience, you can separate the coat and inner as needed, or wear it together. It is suitable for different season and help you adapt to different climates', 'women''s clothing', 'https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg', '{"rate": 2.6, "count": 235}', 5),
+('Lock and Love Women''s Removable Hooded Faux Leather Moto Biker Jacket', 29.95, '100% POLYURETHANE(shell) 100% POLYESTER(lining) 75% POLYESTER 25% COTTON (SWEATER), Faux leather material for style and comfort / 2 pockets of front, 2-For-One Hooded denim style faux leather jacket, Button detail on waist / Detail stitching at sides, HAND WASH ONLY / DO NOT BLEACH / LINE DRY / DO NOT IRON', 'women''s clothing', 'https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg', '{"rate": 2.9, "count": 340}', 6),
+('Rain Jacket Women Windbreaker Striped Climbing Raincoats', 39.99, 'Lightweight perfet for trip or casual wear---Long sleeve with hooded, adjustable drawstring waist design. Button and zipper front closure raincoat, fully stripes Lined and The Raincoat has 2 side pockets are a good size to hold all kinds of things, it covers the hips, and the hood is generous but doesn''t overdo it.Attached Cotton Lined Hood with Adjustable Drawstrings give it a real styled look.', 'women''s clothing', 'https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg', '{"rate": 3.8, "count": 679}', 3),
+('MBJ Women''s Solid Short Sleeve Boat Neck V ', 9.85, '95% RAYON 5% SPANDEX, Made in USA or Imported, Do Not Bleach, Lightweight fabric with great stretch for comfort, Ribbed on sleeves and neckline / Double stitching on bottom hem', 'women''s clothing', 'https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg', '{"rate": 4.7, "count": 130}', 4),
+('Opna Women''s Short Sleeve Moisture', 7.95, '100% Polyester, Machine wash, 100% cationic polyester interlock, Machine Wash & Pre Shrunk for a Great Fit, Lightweight, roomy and highly breathable with moisture wicking fabric which helps to keep moisture away, Soft Lightweight Fabric with comfortable V-neck collar and a slimmer fit, delivers a sleek, more feminine silhouette and Added Comfort', 'women''s clothing', 'https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg', '{"rate": 4.5, "count": 146}', 7),
+('DANVOUY Womens T Shirt Casual Cotton Short', 12.99, '95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.', 'women''s clothing', 'https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg', '{"rate": 3.6, "count": 145}', 8);
+
+
+select * from product_1;
+
+
+select * from product_1;
+
+select * from customer_1;
+
+CREATE TABLE categories (
+    category_id SERIAL PRIMARY KEY,
+    category TEXT UNIQUE
+);
+
+
+ALTER TABLE product_1
+ADD COLUMN category_id INTEGER,
+ADD CONSTRAINT fk_category
+    FOREIGN KEY (category_id)
+    REFERENCES categories(category_id);
+
+UPDATE product_1
+SET category_id = 1
+WHERE category = 'men''s clothing';
+
+UPDATE product_1
+SET category_id = 2
+WHERE category = 'jewelery';
+
+UPDATE product_1
+SET category_id = 3
+WHERE category = 'electronics';
+
+UPDATE product_1
+SET category_id = 4
+WHERE category = 'women''s clothing';
+
+
+INSERT INTO categories (category_id, category) VALUES 
+(1, 'men''s clothing'), 
+(2, 'jewelery'), 
+(3, 'electronics'), 
+(4, 'women''s clothing');
+
+-- Create the HSNCodes table
+CREATE TABLE HSNCodes_1 (
+   hsnc_id SERIAL PRIMARY KEY,
+    hsnc_hsncode VARCHAR(20),
+    hsnc_gstc_percentage NUMERIC
+);
+
+DROP TABLE IF EXISTS HSNCodes_1;
+
+-- Insert rows into the HSNCodes table
+INSERT INTO HSNCodes_1 (hsnc_hsncode, hsnc_gstc_percentage) VALUES 
+('123456', 18.00),
+('789012', 10.00),
+('456789', 15.00),
+('567890', 12.00),
+('234567', 5.00),
+('345678', 12.00),
+('678901', 8.00),
+('890123', 18.00),
+('901234', 16.00),
+('012345', 12.00);
+
+select * from HSNCodes_1
+
+CREATE TABLE orders_1 (
+    orderId SERIAL PRIMARY KEY,
+    order_date DATE,
+    order_total DECIMAL(10, 2),
+    cust_id INT REFERENCES customer_1(cust_id)
+);
+
+
+CREATE TABLE order_products_1 (
+    order_id INT REFERENCES orders_1(orderId),
+    prod_id INT REFERENCES product_1(id),
+    quantity INT,
+    price DECIMAL(10, 2),
+    PRIMARY KEY (order_id, prod_id)
+);
+
+CREATE TABLE ProductStocks_1 (
+    prod_id INT,
+    prod_batchno VARCHAR(20),
+    prod_price NUMERIC,
+    prod_stock INT,
+    prod_mrp NUMERIC
+);
+
+select * from ProductStocks_1;
+
+INSERT INTO ProductStocks_1 (prod_id, prod_batchno, prod_price, prod_stock, prod_mrp)
+VALUES 
+(1, 'BATCH001', 109.95, 50, 120.00),
+(2, 'BATCH002', 22.3, 100, 30.00),
+(3, 'BATCH003', 55.99, 150, 60.00),
+(4, 'BATCH004', 15.99, 200, 20.00),
+(5, 'BATCH005', 695, 80, 720.00),
+(6, 'BATCH006', 168, 90, 180.00),
+(7, 'BATCH007', 9.99, 120, 15.00),
+(8, 'BATCH008', 10.99, 80, 15.00),
+(9, 'BATCH009', 64, 60, 70.00),
+(10, 'BATCH001', 109, 70, 120.00),
+(11, 'BATCH002', 109, 40, 120.00),
+(12, 'BATCH003', 114, 50, 130.00),
+(13, 'BATCH004', 599, 30, 700.00),
+(14, 'BATCH005', 999.99, 20, 1100.00),
+(15, 'BATCH006', 56.99, 60, 70.00),
+(16, 'BATCH007', 29.95, 100, 40.00),
+(17, 'BATCH008', 39.99, 80, 50.00),
+(18, 'BATCH009', 9.85, 150, 15.00),
+(19, 'BATCH001', 7.95, 200, 15.00),
+(20, 'BATCH002', 12.99, 180, 20.00);
+
+CREATE TABLE OrderValueWiseShippingCharges_1 (
+    orvl_id SERIAL PRIMARY KEY,
+    orvl_from NUMERIC(10, 2) DEFAULT 0,
+    orvl_to NUMERIC(10, 2) DEFAULT 2000,
+    orvl_shippingamount NUMERIC(10, 2) DEFAULT 100
+);
+
+INSERT INTO OrderValueWiseShippingCharges_1 (orvl_from, orvl_to, orvl_shippingamount) VALUES
+(0, 2000, 100),
+(2001, 5000, 150),
+(5001, 10000, 200),
+(10001, 20000, 300);
+
+select * from OrderValueWiseShippingCharges_1;
+
+
+
+-- Create ServiceableRegions table
+CREATE TABLE ServiceableRegions_1 (
+    srrg_id SERIAL PRIMARY KEY,
+    srrg_name VARCHAR(100),
+    srrg_pinfrom INTEGER,
+    srrg_pinto INTEGER
+);
+
+-- Create ProductCategoryWiseServiceableRegions table
+CREATE TABLE ProductCategoryWiseServiceableRegions_1 (
+    prct_id SERIAL,
+    srrg_id INTEGER,
+    PRIMARY KEY (prct_id, srrg_id),
+    FOREIGN KEY (srrg_id) REFERENCES ServiceableRegions(srrg_id)
+);
+
+select * from ProductCategoryWiseServiceableRegions_1;
+
+-- Insert values into ServiceableRegions table
+INSERT INTO ServiceableRegions (srrg_name, srrg_pinfrom, srrg_pinto)
+VALUES
+    ('Region A', 531000, 539000),
+    ('Region B', 531500, 538500),
+    ('Region C', 530500, 530000);
+    ('Region D')
+
+-- Insert values into ProductCategoryWiseServiceableRegions table
+INSERT INTO ProductCategoryWiseServiceableRegions (prct_id, srrg_id)
+VALUES
+    (1, 1),  -- Assuming product category 1 belongs to Region A
+    (2, 2),  -- Assuming product category 2 belongs to Region B
+    (3, 3);  -- Assuming product category 3 belongs to Region C
+
+select * from HSNCodes_1;
+select * from categories;
+select * from product_1;
+
+select p.id, title, c.category, hsnc_hsncode , image,  prod_mrp from product_1 p, HSNCodes_1 h, categories c, ProductStocks_1 stock
+	where stock.prod_id=p.id and h.hsnc_id=p.hsnid and c.category_id=p.category_id;
+
+
